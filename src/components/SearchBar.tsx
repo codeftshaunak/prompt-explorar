@@ -1,7 +1,7 @@
 'use client'
 
 import { Search, X } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 
@@ -12,6 +12,22 @@ interface SearchBarProps {
 
 export default function SearchBar({ onSearch, placeholder = "Search prompts..." }: SearchBarProps) {
   const [query, setQuery] = useState('')
+
+  // Debounced search for real-time filtering
+  const debouncedSearch = useCallback(
+    (() => {
+      let timeoutId: NodeJS.Timeout
+      return (searchQuery: string) => {
+        clearTimeout(timeoutId)
+        timeoutId = setTimeout(() => onSearch(searchQuery), 300)
+      }
+    })(),
+    [onSearch]
+  )
+
+  useEffect(() => {
+    debouncedSearch(query)
+  }, [query, debouncedSearch])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()

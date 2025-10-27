@@ -236,3 +236,92 @@ pre code {
 @keyframes shimmer {
   100% { left: 100%; }
 }
+
+/* Enhanced responsive utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Improved mobile touch targets */
+@media (hover: none) and (pointer: coarse) {
+  button, a, input, select, textarea {
+    min-height: 44px;
+  }
+
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Better focus states for accessibility */
+@media (prefers-reduced-motion: no-preference) {
+  .focus-ring:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    transition: outline 0.15s ease-in-out;
+  }
+}
+
+/* Enhanced container queries for responsive design */
+@container (max-width: 640px) {
+  .container-sm\:text-sm {
+    font-size: 0.875rem;
+  }
+
+  .container-sm\:p-2 {
+    padding: 0.5rem;
+  }
+}
+
+/* Performance optimizations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-auto {
+  will-change: auto;
+}
+
+/* Improved dark mode support (future-proofing) */
+@media (prefers-color-scheme: dark) {
+  .dark-mode-ready {
+    color-scheme: dark;
+  }
+}
+
+/* Better print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .shadow-sm, .shadow-md, .shadow-lg {
+    box-shadow: none !important;
+  }
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

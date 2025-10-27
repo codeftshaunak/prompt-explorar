@@ -1,4 +1,4 @@
-// File: /Users/hypomatrix/Downloads/system-prompts-and-models-of-ai-tools-main/prompt-explorer/src/app/layout.tsx
+// File: /Users/hypomatrix/Desktop/new-projects/prompt-explorer/src/app/layout.tsx
 import * as entry from '../../../src/app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

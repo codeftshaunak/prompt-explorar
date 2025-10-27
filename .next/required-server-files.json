@@ -98,7 +98,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "/Users/hypomatrix/Downloads/system-prompts-and-models-of-ai-tools-main/prompt-explorer",
+    "outputFileTracingRoot": "/Users/hypomatrix/Desktop/new-projects/prompt-explorer",
     "experimental": {
       "useSkewCookie": false,
       "cacheLife": {
@@ -296,10 +296,10 @@
           "as": "*.js"
         }
       },
-      "root": "/Users/hypomatrix/Downloads/system-prompts-and-models-of-ai-tools-main/prompt-explorer"
+      "root": "/Users/hypomatrix/Desktop/new-projects/prompt-explorer"
     }
   },
-  "appDir": "/Users/hypomatrix/Downloads/system-prompts-and-models-of-ai-tools-main/prompt-explorer",
+  "appDir": "/Users/hypomatrix/Desktop/new-projects/prompt-explorer",
   "relativeAppDir": "",
   "files": [
     ".next/routes-manifest.json",

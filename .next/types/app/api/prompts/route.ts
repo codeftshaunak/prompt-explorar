@@ -1,4 +1,4 @@
-// File: /Users/hypomatrix/Downloads/system-prompts-and-models-of-ai-tools-main/prompt-explorer/src/app/api/prompts/route.ts
+// File: /Users/hypomatrix/Desktop/new-projects/prompt-explorer/src/app/api/prompts/route.ts
 import * as entry from '../../../../../src/app/api/prompts/route.js'
 import type { NextRequest } from 'next/server.js'
 

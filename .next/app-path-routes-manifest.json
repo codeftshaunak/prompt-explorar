@@ -1,7 +1,7 @@
 {
   "/api/categories/route": "/api/categories",
-  "/api/prompts/[id]/route": "/api/prompts/[id]",
   "/api/prompts/route": "/api/prompts",
+  "/api/prompts/[id]/route": "/api/prompts/[id]",
   "/_not-found/page": "/_not-found",
   "/page": "/",
   "/prompt/[id]/page": "/prompt/[id]"
