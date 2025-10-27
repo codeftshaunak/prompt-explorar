@@ -1,5 +1,7 @@
 {
   "/api/categories/route": "app/api/categories/route.js",
+  "/api/prompts/[id]/route": "app/api/prompts/[id]/route.js",
   "/api/prompts/route": "app/api/prompts/route.js",
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/prompt/[id]/page": "app/prompt/[id]/page.js"
 }

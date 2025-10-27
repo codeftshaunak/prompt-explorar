@@ -205,7 +205,11 @@ export default function HomePage() {
                   <span className="font-medium">All</span>
                   <Badge
                     variant="secondary"
-                    className="ml-2 bg-white/20 text-current border-0"
+                    className={`ml-2 border-0 ${
+                      selectedCategory === null
+                        ? "bg-white text-primary"
+                        : "bg-white/20 text-current"
+                    }`}
                   >
                     {categories.reduce((sum, cat) => sum + cat.count, 0)}
                   </Badge>
@@ -225,7 +229,11 @@ export default function HomePage() {
                     </span>
                     <Badge
                       variant="secondary"
-                      className="ml-2 bg-white/20 text-current border-0"
+                      className={`ml-2 border-0 ${
+                        selectedCategory === category.name
+                          ? "bg-white text-primary"
+                          : "bg-white/20 text-current"
+                      }`}
                     >
                       {category.count}
                     </Badge>
@@ -331,7 +339,7 @@ export default function HomePage() {
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2 md:mb-3 tracking-tight">
                 {selectedCategory || "All Prompts"}
               </h2>
-              <p className="text-base md:text-lg text-muted-foreground font-medium">
+              <p className="text-base text-muted-foreground capitalize">
                 {filteredPrompts.length} prompt
                 {filteredPrompts.length !== 1 ? "s" : ""} found
                 {searchQuery && (
