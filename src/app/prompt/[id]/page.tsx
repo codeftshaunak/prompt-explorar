@@ -12,9 +12,8 @@ import {
   Hash,
   Tag,
   ExternalLink,
+  Sparkles,
 } from "lucide-react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 
 export default function PromptPage() {
   const params = useParams();
@@ -124,7 +123,7 @@ export default function PromptPage() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0">
             <button
               onClick={() => router.push("/")}
-              className="inline-flex items-center gap-2 sm:gap-3 text-muted-foreground hover:text-foreground transition-all duration-200 px-3 sm:px-4 py-2 rounded-lg hover:bg-surface hover:shadow-soft font-medium text-sm sm:text-base"
+              className="inline-flex items-center gap-2 sm:gap-3 text-muted-foreground hover:text-foreground transition-all duration-200 px-3 sm:px-4 py-2 rounded-lg hover:bg-surface shadow-soft hover:shadow-medium font-medium text-sm sm:text-base"
             >
               <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
               <span className="hidden sm:inline">Back to Explorer</span>
@@ -240,54 +239,85 @@ export default function PromptPage() {
 
         {/* Interaction Section */}
         <div
-          className="bg-card border border-border rounded-xl p-4 sm:p-6 lg:p-8 shadow-soft animate-fade-in"
+          className="bg-gradient-to-br from-white via-white to-primary/5 border-2 border-border rounded-2xl p-6 sm:p-8 lg:p-10 shadow-lg hover:shadow-xl transition-all duration-500 animate-fade-in backdrop-blur-sm hover:border-primary/30"
           style={{ animationDelay: "0.4s" }}
         >
-          <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6">
-            How to Use This Prompt
-          </h2>
-          <div className="space-y-4 sm:space-y-6">
-            <div className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-surface rounded-lg hover:bg-surface-hover transition-colors">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary rounded-xl flex items-center justify-center text-primary-foreground text-xs sm:text-sm font-bold shadow-soft flex-shrink-0">
-                1
+          <div className="text-center mb-8 sm:mb-10">
+            <div className="inline-flex items-center gap-3 mb-4 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
+              <MessageSquare className="h-5 w-5 text-primary" />
+              <span className="text-primary font-medium text-sm">Implementation Guide</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text">
+              How to Use This Prompt
+            </h2>
+            <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
+              Follow these simple steps to integrate this AI prompt into your workflow
+            </p>
+          </div>
+
+          <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 max-w-6xl mx-auto">
+            <div className="group relative bg-white border border-border/30 rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 cursor-pointer">
+              <div className="absolute -top-4 left-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white text-lg font-bold shadow-lg rotate-3 group-hover:rotate-0 transition-transform duration-300">
+                  1
+                </div>
               </div>
-              <div>
-                <p className="font-semibold text-foreground text-base sm:text-lg mb-1 sm:mb-2">
-                  Copy the prompt
-                </p>
+              <div className="pt-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <Copy className="h-6 w-6 text-blue-500" />
+                  <h3 className="font-bold text-foreground text-lg sm:text-xl">
+                    Copy the prompt
+                  </h3>
+                </div>
                 <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-                  Use the copy button above to copy the full system prompt to
-                  your clipboard.
+                  Use the copy button in the header above to copy the complete system prompt to your clipboard. The entire prompt content will be ready for immediate use.
                 </p>
               </div>
             </div>
-            <div className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-surface rounded-lg hover:bg-surface-hover transition-colors">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary rounded-xl flex items-center justify-center text-primary-foreground text-xs sm:text-sm font-bold shadow-soft flex-shrink-0">
-                2
+
+            <div className="group relative bg-white border border-border/30 rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 cursor-pointer">
+              <div className="absolute -top-4 left-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center text-white text-lg font-bold shadow-lg rotate-3 group-hover:rotate-0 transition-transform duration-300">
+                  2
+                </div>
               </div>
-              <div>
-                <p className="font-semibold text-foreground text-base sm:text-lg mb-1 sm:mb-2">
-                  Apply to your AI tool
-                </p>
+              <div className="pt-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <ExternalLink className="h-6 w-6 text-green-500" />
+                  <h3 className="font-bold text-foreground text-lg sm:text-xl">
+                    Apply to your AI tool
+                  </h3>
+                </div>
                 <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-                  Paste this prompt as the system message in your AI application
-                  or chatbot.
+                  Paste this prompt as the system message in your preferred AI application, chatbot, or development environment to activate the specialized behavior.
                 </p>
               </div>
             </div>
-            <div className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-surface rounded-lg hover:bg-surface-hover transition-colors">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary rounded-xl flex items-center justify-center text-primary-foreground text-xs sm:text-sm font-bold shadow-soft flex-shrink-0">
-                3
+
+            <div className="group relative bg-white border border-border/30 rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 cursor-pointer">
+              <div className="absolute -top-4 left-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center text-white text-lg font-bold shadow-lg rotate-3 group-hover:rotate-0 transition-transform duration-300">
+                  3
+                </div>
               </div>
-              <div>
-                <p className="font-semibold text-foreground text-base sm:text-lg mb-1 sm:mb-2">
-                  Customize as needed
-                </p>
+              <div className="pt-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <Tag className="h-6 w-6 text-purple-500" />
+                  <h3 className="font-bold text-foreground text-lg sm:text-xl">
+                    Customize as needed
+                  </h3>
+                </div>
                 <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-                  Modify the prompt to fit your specific use case and
-                  requirements.
+                  Feel free to modify and adapt the prompt to match your specific requirements, use case, or brand voice for optimal results.
                 </p>
               </div>
+            </div>
+          </div>
+
+          <div className="mt-10 text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/20 text-primary text-sm font-medium">
+              <Sparkles className="h-4 w-4" />
+              Ready to enhance your AI workflow
             </div>
           </div>
         </div>
