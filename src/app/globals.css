@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Beautiful light mode design system */
+  --background: 0 0% 100%;             /* Pure white background #FFFFFF */
+  --foreground: 222 84% 4.9%;          /* Dark text #020817 */
+  --card: 0 0% 100%;                   /* White card surface */
+  --card-foreground: 222 84% 4.9%;     /* Dark card text */
+  --popover: 0 0% 100%;                /* White popover */
+  --popover-foreground: 222 84% 4.9%;  /* Dark popover text */
+  --primary: 214 84% 56%;              /* Beautiful blue #478BEB */
+  --primary-foreground: 0 0% 100%;     /* White on primary */
+  --secondary: 210 40% 98%;            /* Very light gray #F8FAFC */
+  --secondary-foreground: 222 84% 4.9%; /* Dark text on secondary */
+  --muted: 210 40% 96%;                /* Light muted background #F1F5F9 */
+  --muted-foreground: 215 16% 47%;     /* Readable muted text #64748B */
+  --accent: 210 40% 96%;               /* Light accent background */
+  --accent-foreground: 222 84% 4.9%;   /* Dark accent text */
+  --destructive: 0 84% 60%;            /* Red destructive #F56565 */
+  --destructive-foreground: 0 0% 98%;  /* White on destructive */
+  --border: 214 32% 91%;               /* Light borders #E2E8F0 */
+  --input: 0 0% 100%;                  /* White input background */
+  --ring: 214 84% 56%;                 /* Focus ring - same as primary */
+  --radius: 8px;                       /* Border radius */
+
+  /* Clean semantic colors for light mode */
+  --success: 142 76% 36%;              /* Green success #10B981 */
+  --warning: 38 92% 50%;               /* Orange warning #F59E0B */
+  --info: 214 84% 56%;                 /* Blue info - same as primary */
+  --surface: 0 0% 100%;                /* White surface */
+  --surface-hover: 210 40% 98%;        /* Light hover surface */
+  --text-primary: 222 84% 4.9%;        /* Primary dark text */
+  --text-secondary: 215 25% 27%;       /* Secondary dark text */
+  --text-muted: 215 16% 47%;           /* Muted readable text */
+
+  /* Professional accent colors for light mode */
+  --violet: 262 83% 58%;               /* Professional violet */
+  --indigo: 239 84% 67%;               /* Professional indigo */
+  --cyan: 189 85% 44%;                 /* Professional cyan */
+  --emerald: 160 84% 39%;              /* Professional emerald */
+  --amber: 43 96% 56%;                 /* Professional amber */
+  --rose: 348 83% 47%;                 /* Professional rose */
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  color: hsl(var(--foreground));
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background-attachment: fixed;
+  font-family: Inter, system-ui, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  min-height: 100vh;
+}
+
+/* Ensure the light gradient is always visible */
+html {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  min-height: 100vh;
+}
+
+/* Smooth animations */
+* {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 6px;
+  border: 2px solid hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+::-webkit-scrollbar-corner {
+  background: hsl(var(--background));
+}
+
+/* Enhanced typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.875rem; }
+h3 { font-size: 1.5rem; }
+
+/* Code styling */
+code {
+  font-family: 'JetBrains Mono', monospace;
+  background: hsl(var(--muted));
+  color: hsl(var(--primary));
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.875em;
+  font-weight: 500;
+  border: 1px solid hsl(var(--border));
+}
+
+pre {
+  background: hsl(var(--muted));
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  position: relative;
+  color: hsl(var(--foreground));
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+  border: none;
+  color: inherit;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(220, 225, 235, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(220, 225, 235, 0.1);
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.4s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Text selection */
+::selection {
+  background: hsl(var(--primary) / 0.2);
+  color: hsl(var(--foreground));
+}
+
+/* Loading states */
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  100% { left: 100%; }
+}
