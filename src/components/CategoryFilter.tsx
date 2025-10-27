@@ -16,7 +16,7 @@ export default function CategoryFilter({
   onCategorySelect
 }: CategoryFilterProps) {
   return (
-    <div className="space-y-1">
+    <div className="space-y-1 max-h-96 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent hover:scrollbar-thumb-gray-400">
       <Button
         onClick={() => onCategorySelect(null)}
         variant={selectedCategory === null ? "default" : "ghost"}

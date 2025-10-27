@@ -360,7 +360,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$b
 function CategoryFilter(param) {
     let { categories, selectedCategory, onCategorySelect } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "space-y-1",
+        className: "space-y-1 max-h-96 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent hover:scrollbar-thumb-gray-400",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                 onClick: ()=>onCategorySelect(null),
@@ -796,167 +796,40 @@ __turbopack_context__.s([
     ()=>VirtualizedPromptList
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PromptCard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/PromptCard.tsx [app-client] (ecmascript)");
-;
-var _s = __turbopack_context__.k.signature();
 "use client";
 ;
 ;
 function VirtualizedPromptList(param) {
-    let { prompts, itemHeight = 220, containerHeight = 800, overscan = 5, gap = 16 } = param;
-    _s();
-    const [scrollTop, setScrollTop] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
-    const [clientHeight, setClientHeight] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(containerHeight);
-    const containerRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "VirtualizedPromptList.useEffect": ()=>{
-            const updateClientHeight = {
-                "VirtualizedPromptList.useEffect.updateClientHeight": ()=>{
-                    if (containerRef.current) {
-                        setClientHeight(containerRef.current.clientHeight);
-                    }
-                }
-            }["VirtualizedPromptList.useEffect.updateClientHeight"];
-            updateClientHeight();
-            window.addEventListener("resize", updateClientHeight);
-            return ({
-                "VirtualizedPromptList.useEffect": ()=>window.removeEventListener("resize", updateClientHeight)
-            })["VirtualizedPromptList.useEffect"];
-        }
-    }["VirtualizedPromptList.useEffect"], []);
-    const visibleRange = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"])({
-        "VirtualizedPromptList.useMemo[visibleRange]": ()=>{
-            const itemHeightWithGap = itemHeight + gap;
-            const startIndex = Math.max(0, Math.floor(scrollTop / itemHeightWithGap) - overscan);
-            const endIndex = Math.min(prompts.length - 1, Math.floor((scrollTop + clientHeight) / itemHeightWithGap) + overscan);
-            return {
-                startIndex,
-                endIndex
-            };
-        }
-    }["VirtualizedPromptList.useMemo[visibleRange]"], [
-        scrollTop,
-        clientHeight,
-        itemHeight,
-        gap,
-        prompts.length,
-        overscan
-    ]);
-    const visibleItems = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"])({
-        "VirtualizedPromptList.useMemo[visibleItems]": ()=>{
-            return prompts.slice(visibleRange.startIndex, visibleRange.endIndex + 1);
-        }
-    }["VirtualizedPromptList.useMemo[visibleItems]"], [
-        prompts,
-        visibleRange
-    ]);
-    const totalHeight = prompts.length * (itemHeight + gap) - gap;
-    const offsetY = visibleRange.startIndex * (itemHeight + gap);
-    const handleScroll = (e)=>{
-        setScrollTop(e.currentTarget.scrollTop);
-    };
-    // If there are fewer than 20 items, don't use virtualization
-    if (prompts.length < 20) {
-        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "space-y-4 animate-fade-in",
-            style: {
-                animationDelay: "0.3s"
-            },
-            children: prompts.map((prompt, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "animate-fade-in",
-                    style: {
-                        animationDelay: "".concat(0.4 + index * 0.05, "s")
-                    },
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PromptCard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                        prompt: prompt
-                    }, void 0, false, {
-                        fileName: "[project]/src/components/VirtualizedPromptList.tsx",
-                        lineNumber: 75,
-                        columnNumber: 13
-                    }, this)
-                }, prompt.id, false, {
-                    fileName: "[project]/src/components/VirtualizedPromptList.tsx",
-                    lineNumber: 70,
-                    columnNumber: 11
-                }, this))
-        }, void 0, false, {
-            fileName: "[project]/src/components/VirtualizedPromptList.tsx",
-            lineNumber: 65,
-            columnNumber: 7
-        }, this);
-    }
+    let { prompts } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "animate-fade-in",
+        className: "space-y-4 animate-fade-in",
         style: {
             animationDelay: "0.3s"
         },
-        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            ref: containerRef,
-            onScroll: handleScroll,
-            style: {
-                height: "".concat(containerHeight, "px")
-            },
-            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        children: prompts.map((prompt, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "animate-fade-in",
                 style: {
-                    height: "".concat(totalHeight, "px"),
-                    position: "relative"
+                    animationDelay: "".concat(0.4 + index * 0.05, "s")
                 },
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    style: {
-                        transform: "translateY(".concat(offsetY, "px)"),
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        right: 0
-                    },
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "space-y-4",
-                        children: visibleItems.map((prompt)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                style: {
-                                    height: "".concat(itemHeight, "px"),
-                                    marginBottom: "".concat(gap, "px")
-                                },
-                                className: "animate-fade-in",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PromptCard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                    prompt: prompt
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/VirtualizedPromptList.tsx",
-                                    lineNumber: 109,
-                                    columnNumber: 19
-                                }, this)
-                            }, prompt.id, false, {
-                                fileName: "[project]/src/components/VirtualizedPromptList.tsx",
-                                lineNumber: 101,
-                                columnNumber: 17
-                            }, this))
-                    }, void 0, false, {
-                        fileName: "[project]/src/components/VirtualizedPromptList.tsx",
-                        lineNumber: 99,
-                        columnNumber: 13
-                    }, this)
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PromptCard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                    prompt: prompt
                 }, void 0, false, {
                     fileName: "[project]/src/components/VirtualizedPromptList.tsx",
-                    lineNumber: 90,
+                    lineNumber: 28,
                     columnNumber: 11
                 }, this)
-            }, void 0, false, {
+            }, prompt.id, false, {
                 fileName: "[project]/src/components/VirtualizedPromptList.tsx",
-                lineNumber: 89,
+                lineNumber: 23,
                 columnNumber: 9
-            }, this)
-        }, void 0, false, {
-            fileName: "[project]/src/components/VirtualizedPromptList.tsx",
-            lineNumber: 84,
-            columnNumber: 7
-        }, this)
+            }, this))
     }, void 0, false, {
         fileName: "[project]/src/components/VirtualizedPromptList.tsx",
-        lineNumber: 83,
+        lineNumber: 18,
         columnNumber: 5
     }, this);
 }
-_s(VirtualizedPromptList, "8DVkSLSMsQww1gyhY0AlzKcgH9w=");
 _c = VirtualizedPromptList;
 var _c;
 __turbopack_context__.k.register(_c, "VirtualizedPromptList");
@@ -1088,7 +961,7 @@ function HomePage() {
         }, this);
     }
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "min-h-screen",
+        className: "min-h-screen bg-background",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
                 className: "border-b border-border backdrop-blur-xl bg-white/80 sticky top-0 z-40 animate-fade-in shadow-sm",
@@ -1440,7 +1313,7 @@ function HomePage() {
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "container mx-auto px-4 md:px-6 py-6 md:py-10",
+                className: "container mx-auto px-4 md:px-6 py-6 md:py-10 bg-background",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "flex flex-col lg:flex-row gap-6 lg:gap-10",
                     children: [

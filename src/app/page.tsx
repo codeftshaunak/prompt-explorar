@@ -102,7 +102,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b border-border backdrop-blur-xl bg-white/80 sticky top-0 z-40 animate-fade-in shadow-sm">
         <div className="container mx-auto px-4 md:px-6 py-3 md:py-4">
@@ -246,7 +246,7 @@ export default function HomePage() {
       )}
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 md:px-6 py-6 md:py-10">
+      <div className="container mx-auto px-4 md:px-6 py-6 md:py-10 bg-background">
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
           {/* Sidebar - Hidden on mobile */}
           <aside className="hidden lg:block w-80 flex-shrink-0">
